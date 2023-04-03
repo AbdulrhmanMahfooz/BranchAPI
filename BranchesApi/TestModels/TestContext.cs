@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 #nullable disable
 
-namespace BranchesApi.Models
+namespace BranchesApi.TestModels
 {
     public partial class TestContext : DbContext
     {
@@ -31,7 +31,14 @@ namespace BranchesApi.Models
         public virtual DbSet<UsersPrivilege> UsersPrivileges { get; set; }
         public virtual DbSet<UsersRef> UsersRefs { get; set; }
 
-   
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("server=DESKTOP-6IQN98I;Database=Test;Trusted_Connection=True;");
+            }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

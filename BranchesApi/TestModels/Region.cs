@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace BranchesApi.Models
+namespace BranchesApi.TestModels
 {
     public partial class Region
     {

@@ -3,16 +3,11 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace BranchesApi.Models
+namespace BranchesApi.TestModels
 {
-    public partial class Region
+    public partial class RegionsRef
     {
-        public Region()
-        {
-            Branches = new HashSet<Branch>();
-            Cities = new HashSet<City>();
-        }
-
+        public long OpNo { get; set; }
         public short RegionNo { get; set; }
         public string RegionName { get; set; }
         public string RegionNameLatin { get; set; }
@@ -24,13 +19,9 @@ namespace BranchesApi.Models
         public DateTime? OriginDate { get; set; }
         public int? UserNoUpdate { get; set; }
         public DateTime? UpdateDate { get; set; }
-        public string PcName { get; set; }
-        public string PcUserName { get; set; }
         public string Status { get; set; }
         public DateTime? StatusDate { get; set; }
-
-        public virtual Country CountryNoNavigation { get; set; }
-        public virtual ICollection<Branch> Branches { get; set; }
-        public virtual ICollection<City> Cities { get; set; }
+        public string PcName { get; set; }
+        public string PcUserName { get; set; }
     }
 }
